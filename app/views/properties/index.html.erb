@@ -1,0 +1,32 @@
+
+<div class="center hero-unit">
+  <h1>List of the Existing Properties</h1>
+</div>
+
+<div class="container">
+  <div class='row'>
+    <table id="myTable" class="table table-striped table-bordered tablesorter">
+      <thead>
+      <tr>
+        <th>Property ID</th>
+        <th>Property Name</th>
+        <th>Property Desc</th>
+        <th>Property For</th>
+        <th>Record Added</th>
+      </tr>
+      </thead>
+      <tbody>
+    <% @properties.each do |property| %>
+      <tr>
+        <td><%= property.property_id %></td>
+        <td><%= property.property_name %></td>
+        <td><%= property.property_desc %></td>
+        <td><%= property.related_entity %></td>
+        <td><%= property.rec_add_ts %></td>
+      </tr>
+    <% end %>
+    </tbody>
+    </table>
+  </div>
+</div>
+<br />

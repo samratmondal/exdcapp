@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>EzdcApp</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+
+<script type="text/javascript" src="/assets/jquery-latest.js"></script> 
+<script type="text/javascript" src="/assets/jquery.tablesorter.js"></script> 
+
+<script type="text/javascript">
+
+$(document).ready(function() 
+    { 
+        $("#myTable").tablesorter(); 
+    } 
+);
+
+</script>
+
+</head>
+<body>
+
+<%= yield %>
+
+</body>
+</html>
