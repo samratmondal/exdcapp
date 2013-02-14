@@ -7,12 +7,16 @@ gem 'rails', '3.2.11'
 gem 'bootstrap-sass'
 gem 'bcrypt-ruby'
 
-gem 'ruby-oci8'
-gem 'activerecord-oracle_enhanced-adapter'
+group :development, :test do
+  gem 'ruby-oci8'
+  gem 'activerecord-oracle_enhanced-adapter'
+  gem 'rspec-rails'
+  gem 'guard-rspec'
+end
 
-gem 'rspec-rails'
-gem 'guard-rspec'
-gem 'annotate'
+group :development do
+  gem 'annotate'
+end
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -30,14 +34,15 @@ gem 'jquery-rails'
 
 group :test do
   gem 'capybara', '1.1.2'
+  gem 'guard-spork', '0.3.2'
+  gem 'spork', '0.9.0'
+
 # 02/13/2013 JArsenault
 # Commenting out Windows-related gems for now
 # gem 'rb-fchange', '0.0.5'
 # gem 'rb-notifu', '0.0.4'
 # gem 'win32console', '1.3.0'
 # gem 'wdm', '~> 0.0.3'
-  gem 'guard-spork', '0.3.2'
-  gem 'spork', '0.9.0'
 end
 
 # To use ActiveModel has_secure_password

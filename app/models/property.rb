@@ -16,14 +16,14 @@
 #
 
 class Property < ActiveRecord::Base
-  attr_accessible :property_id, :property_name, :property_type, :property_desc, :related_entity,
-  					:rec_add_ts
+  attr_accessible :property_id, :property_name, :property_type, :property_desc, :property_status, 
+            :related_entity, :rec_add_ts
   # specify schema and table name
-  set_table_name "property"
+  self.table_name = 'property'
   # specify primary key name
-  set_primary_key "property_id"
+  self.primary_key = 'property_id'
   # specify sequence name
-  set_sequence_name "property_id_seq"
+  self.sequence_name = 'property_id_seq'
   # set which DATE columns should be converted to Ruby Date
   #set_date_columns :hired_on, :birth_date_on
   # set which DATE columns should be converted to Ruby Time

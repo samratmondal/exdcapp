@@ -19,7 +19,10 @@
 
 development:
   adapter: oracle_enhanced
+# for database running in localhost with application
   database: 127.0.0.1/xe
+# for database running in a separate VM from application
+#  database: 192.168.195.159:1521/xe
   username: cmmi
   password: cmmiPass
 
@@ -27,10 +30,13 @@ development:
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
-  adapter: oracle
-  database: ezdc_app_test
-  username: ezdc_app
-  password:
+  adapter: oracle_enhanced
+# for database running in localhost with application
+  database: 127.0.0.1/xe
+# for database running in a separate VM from application
+#  database: 192.168.195.159:1521/xe
+  username: cmmi_test
+  password: cmmiPass
 
 production:
   adapter: oracle

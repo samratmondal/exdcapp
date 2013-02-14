@@ -18,5 +18,22 @@
 require 'spec_helper'
 
 describe Property do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+  before do
+  	@property = Property.new(
+  	  property_name: "ExampleProperty",
+  	  property_type: "String",
+  	  property_desc: "An example property",
+  	  property_status: "1",
+  	  related_entity: "Example_Entity")
+  end
+
+  #subject { @property }
+
+  it { should respond_to(:property_name) }
+  it { should respond_to(:property_type) }
+  it { should respond_to(:property_desc) }
+  it { should respond_to(:property_status) }
+  it { should respond_to(:related_entity) }
+ 
 end
