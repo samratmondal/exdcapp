@@ -1,6 +1,15 @@
 EzdcApp::Application.routes.draw do
+  get "static_pages/home"
 
+  resources :users
   resources :properties
+  resources :sessions, only: [:new, :create, :destroy]
+
+  match '/signin',  to: 'sessions#new'
+  match '/signout', to: 'sessions#destroy', via: :delete
+  match '/home', to: 'static_pages#home'
+  match '/users', to: 'users#show'
+  
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

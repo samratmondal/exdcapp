@@ -1,0 +1,89 @@
+NOTES
+
+Add Users to EZDCApp
+
+Chapter 6 of RoR Tutorial:
+
+Generating a Users controller
+  rails generate controller Users new --no-test-framework
+  generate created:
+    app/controllers/users_controller.rb
+    route get "users/new"
+    app/views/users/new.html.erb
+    app/helpers/users_helper.rb
+    app/assets/javascripts/users.js.coffee
+    app/addets/stylesheets/users.css.scss
+
+Generating a User model
+  rails generate model User name:string email:string
+  Q. Ask Samrat how to generate the model from a database table
+  A. Can't do it, but can annotate the model as described in the next section
+  generate created:
+    db/migrate/20130218132532_create_users.rb
+    app/models/user.rb
+    spec/models/user_spec.rb
+  Q. How do we override the database column names in the model? For example, how can we use :name as the attribute symbol instead of :cmmi_user_name?
+  A. 
+
+Annotating the User model from the database
+  bundle exec annotate user.rb
+    This command will pull the column names, data types, and constraints from
+      the database and include that information as comments at the top of the file.
+    If the table name is not the plural of the model name, include the following in the model file before running the annotate command:
+      # specify schema and table name
+      self.table_name = 'cmmi_user'
+    Override other attributes as necessary
+      # specify primary key name
+      self.primary_key = 'cmmi_user_id'
+      # specify sequence name
+      self.sequence_name = 'cmmi_user_id_seq'
+      # set datetime columns
+      set_datetime_columns :rec_add_ts, rec_updt_ts...
+      # set columns to ignore
+      ignore_table_columns :cmmi_user_id, :rec_updt_user_name...
+
+Creating aliases for database column names
+ include alias_attribute declarations in model file
+   alias_attribute :user_name, :cmmi_user_name
+   alias_attribute :password, :cmmi_user_password
+   (you will also have to update all existing references to the attribute including in the attr_accessible declaration or any validates method calls)
+
+
+Chapter 8 of RoR Tutorial:
+
+$ rails generate controller Session --no-test-framework
+$ rails generate integration_test authentication_pages
+
+Add session resource to routes file:
+  resources :sessions, only: [:new, :create, :destroy]
+
+Add named routes:
+  match '/signin', to: 'sessions#new'
+  match '/signout', to: 'sessions#destroy', via: :delete
+
+!!!!! 
+The view pages provide the contents of the body of application.html.erb. It is a template that provides the rest of the HTML for a complete page. Look there for things like the page title, stylesheet and javascript declarations, header and footer.
+!!!!!
+
+Create Home page:
+  $ rails generate controller StaticPage home --no-test-framework
+  $ rails generate integration_test static_pages
+ 
+To see all routes in the application:
+  $ rake routes 
+
+TODO SECTION
++++++++++++++++++++++++++++++++
+Set the root page to be the signin page
+
+Decide whether the User model needs to be read-only for this application
+
+Have SM and JL review the User model
+
+Compare the HTML of the signin page with the one in sample_app
+
+Deal with the issue of mixed case user_name in database
+
+Discuss whether or not we should get the javascript out of the application.html.erb file
+
+

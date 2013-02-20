@@ -1,28 +1,31 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>EzdcApp</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
+  <head>
+    <title>EZDC App</title>
+    <%= stylesheet_link_tag    "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
 
-<script type="text/javascript" src="/assets/jquery-latest.js"></script> 
-<script type="text/javascript" src="/assets/jquery.tablesorter.js"></script> 
+    <script type="text/javascript" src="/assets/jquery-latest.js"></script> 
+    <script type="text/javascript" src="/assets/jquery.tablesorter.js"></script> 
 
-<script type="text/javascript">
-
-$(document).ready(function() 
-    { 
-        $("#myTable").tablesorter(); 
-    } 
-);
-
-</script>
-
-</head>
-<body>
-
-<%= yield %>
-
-</body>
+    <script type="text/javascript">
+      $(document).ready(function() 
+        { 
+          $("#myTable").tablesorter(); 
+        } 
+      );
+    </script>
+    <%= render 'layouts/shim' %>
+  </head>
+  <body>
+  	<%= render 'layouts/header' %>
+    <div class="container">
+      <% flash.each do |key, value| %>
+        <%= content_tag(:div, value, class: "alert alert-#{key}") %>
+      <% end %>
+  	  <%= yield %>
+      <%= debug(params) if Rails.env.development? %>
+    </div>
+  </body>
 </html>

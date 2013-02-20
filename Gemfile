@@ -4,7 +4,7 @@ gem 'rails', '3.2.11'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
-gem 'bootstrap-sass'
+gem 'bootstrap-sass', '2.1'
 gem 'bcrypt-ruby'
 
 group :development, :test do
@@ -36,6 +36,7 @@ group :test do
   gem 'capybara', '1.1.2'
   gem 'guard-spork', '0.3.2'
   gem 'spork', '0.9.0'
+  gem 'factory_girl_rails', '1.4.0'
 
 # 02/13/2013 JArsenault
 # Commenting out Windows-related gems for now
