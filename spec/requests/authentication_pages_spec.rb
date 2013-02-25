@@ -35,5 +35,16 @@ describe "Authentication" do
       it { should have_link('Sign out', href: signout_path) }
       it { should_not have_link('Sign in', href: signin_path) }
     end
+  end
+
+  describe "authorization" do
+
+    describe "in the Users controller" do
+
+      describe "vising the user index" do
+        before { visit users_path }
+        it { should have_selector('h1', text: 'Users') }
+      end
+    end
   end  
 end
