@@ -18,11 +18,19 @@
 
 class User < ActiveRecord::Base
 
-# TODO Should there be any accessible User attributes in the EZDC admin app?
-# Isn't everything here read-only for auth and auth purposes?
-  attr_accessible :cmmi_user_id, :user_name, :password, :first_name, 
-    :last_name, :admin_flag, :rec_add_ts, :rec_add_user_name
+  attr_accessible :cmmi_user_id, :user_name, :password, :password_confirmation,
+    :first_name, :last_name, :admin_flag, :rec_add_ts, :rec_add_user_name
   
+  before_create do
+    self.rec_add_ts = Time.new
+    self.rec_add_user_name = "CMMI"
+  end
+
+  before_update do
+    self.rec_updt_ts = Time.new
+    self.rec_updt_user_name = "CMMI"
+  end
+
   # specify schema and table name
   self.table_name = 'cmmi_user'
   
@@ -38,9 +46,10 @@ class User < ActiveRecord::Base
   set_datetime_columns :rec_add_ts, :rec_updt_ts, :last_login_ts, :last_logout_ts
   
   # set which VARCHAR2 columns should be converted to true and false
-  #set_boolean_columns :manager, :active
+  # set_boolean_columns :manager, :active
+
   # set which columns should be ignored in ActiveRecord
-  ignore_table_columns :rec_updt_user_name
+  # ignore_table_columns :rec_updt_user_name
 
   alias_attribute :user_name, :cmmi_user_name
   alias_attribute :password, :cmmi_user_password

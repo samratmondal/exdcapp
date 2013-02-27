@@ -1,8 +1,16 @@
-<h1>EZDCApp Home</h1>
+<% provide(:title, 'Home') %>
 
-<div class="row">
-  <div class="span6 offset3 center">
-    <p><%= link_to "Manage Users", users_path %></p>
-    <p><%= link_to "Manage Properties", properties_path %></p>
+<div class="container">
+  <div class="page-header">
+    <h1>Home</h1>
   </div>
-</div>  
+
+  <div class='row'>
+  	<div class="span8 offset2"
+      <p><%= link_to "Manage Users", users_path, class: "btn btn-large btn-primeary"%></p>
+      <p><%= link_to "Manage Properties", properties_path, class: "btn btn-large btn-primeary" %></p>
+    </div>
+  </div>
+</div>
+
+
