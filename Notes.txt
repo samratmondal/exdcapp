@@ -1,5 +1,7 @@
 NOTES
 
+Testing pull with conflict.
+
 Add Users to EZDCApp
 
 Chapter 6 of RoR Tutorial:
