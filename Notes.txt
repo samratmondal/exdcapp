@@ -72,6 +72,9 @@ Create Home page:
 To see all routes in the application:
   $ rake routes 
 
+To get the latest code from GitHub
+git pull origin master
+
 TODO SECTION
 +++++++++++++++++++++++++++++++
 Set the root page to be the signin page
