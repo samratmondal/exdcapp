@@ -1,5 +1,7 @@
 NOTES
 
+Testing pull with conflict.
+
 Add Users to EZDCApp
 
 Chapter 6 of RoR Tutorial:
@@ -71,6 +73,9 @@ Create Home page:
  
 To see all routes in the application:
   $ rake routes 
+
+To get the latest code from GitHub
+git pull origin master
 
 TODO SECTION
 +++++++++++++++++++++++++++++++
