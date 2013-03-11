@@ -31,6 +31,11 @@
           <%= f.check_box :admin_flag, {:checked => :admin_flag}, "Y", "N" %>
           Admin&nbsp;User
         <% end %>
+        <%= f.label :read_only, class: 'checkbox inline' do %>
+          <%= f.check_box :read_only, { checked: @user.read_only == "Y" }, "Y", "N" %>
+          Read&nbsp;Only
+        <% end %>
+
 	      <br /><br />
 
 	      <%= f.submit "Create user", class: "btn btn-large btn-primary" %>

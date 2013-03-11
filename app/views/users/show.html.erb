@@ -1,0 +1,44 @@
+<% provide(:title, 'User Information') %>
+<h1>User Information</h1>
+
+<div class="row">
+  <div class="span6 offset3">
+  	<%= form_for(@user) do |f| %>
+        
+        <%= f.label :user_name %>
+        <%= f.text_field :user_name, { disabled: true } %>
+
+        <%= f.label :first_name %>
+        <%= f.text_field :first_name, { disabled: true } %>
+
+        <%= f.label :last_name %>
+        <%= f.text_field :last_name, { disabled: true } %>
+
+        <%= f.label :password %>
+        <%= f.text_field :password, { disabled: true } %>
+
+        <br />
+        <%= f.label :admin_flag, class: 'checkbox inline' do %>
+          <%= f.check_box :admin_flag, { disabled: true, checked: @user.admin_flag == "Y" } %>
+          Admin&nbsp;User
+        <% end %>
+        <%= f.label :read_only, class: 'checkbox inline' do %>
+          <%= f.check_box :read_only, { disabled: true, checked: @user.read_only == "Y" } %>
+          Read&nbsp;Only
+        <% end %>
+        <br /><br />
+
+    <% end %>
+
+      <p>
+        <%= link_to "Edit", edit_user_path, class: "btn btn-large btn-primary" %>
+        <%= link_to "Delete", @user, method: :delete,
+                                  data: {confirm: "Are you sure?" }, class: "btn btn-large btn-danger" %>
+        <!-- <%= link_to "Delete", delete_user_path, method: :delete, confirm: "Are you sure?", class: "btn btn-large btn-danger" %> -->
+        <%= link_to "Cancel", users_path, class: "btn btn-large btn-primary" %>
+
+      </p>
+
+  </div>
+</div>
+

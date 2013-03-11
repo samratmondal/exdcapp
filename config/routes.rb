@@ -8,7 +8,9 @@ EzdcApp::Application.routes.draw do
   match '/home', to: 'static_pages#home'
   match '/users', to: 'users#show'
   match '/add_user', to: 'users#new'
-  
+  match '/edit_user', to: 'users#edit'
+  match '/update_user', to: 'users#update'
+  match '/delete_user', to: 'users#destroy'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

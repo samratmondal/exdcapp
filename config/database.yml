@@ -22,7 +22,7 @@ development:
 # for database running in localhost with application
 #  database: 127.0.0.1/xe
 # for database running in a separate VM from application
-  database: 192.168.195.169:1521/xe
+  database: 192.168.195.178:1521/xe
   username: cmmi
   password: cmmiPass
 
@@ -34,7 +34,7 @@ test:
 # for database running in localhost with application
 #  database: 127.0.0.1/xe
 # for database running in a separate VM from application
-  database: 192.168.195.169:1521/xe
+  database: 192.168.195.178:1521/xe
   username: cmmi_test
   password: cmmiPass
 
