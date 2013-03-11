@@ -13,13 +13,14 @@
 #  last_logout_ts     :timestamp(6)
 #  first_name         :string(255)
 #  last_name          :string(255)
-#  admin_flag         :string(255)
+#  admin_flag         :string(1)
+#  read_only          :string(1)
 #
 
 class User < ActiveRecord::Base
 
   attr_accessible :cmmi_user_id, :user_name, :password, :password_confirmation,
-    :first_name, :last_name, :admin_flag, :rec_add_ts, :rec_add_user_name
+    :first_name, :last_name, :admin_flag, :read_only, :rec_add_ts, :rec_add_user_name
   
   before_create do
     self.rec_add_ts = Time.new

@@ -14,21 +14,23 @@
 	    <table id="users" class="table table-striped table-bordered tablesorter">
 	      <thead>
 		      <tr>
-		        <th>User ID</th>
 		        <th>User Name</th>
+		        <th>User ID</th>
 		        <th>First Name</th>
 		        <th>Last Name</th>
 		        <th>Admin Flag</th>
+		        <th>Read Only</th>
 		      </tr>
 	      </thead>
 	      <tbody>
           <% @users.each do |user| %>
 		      <tr>
+		        <td><%= link_to user.user_name, user %></td>
 		        <td><%= user.cmmi_user_id %></td>
-		        <td><%= user.user_name %></td>
 		        <td><%= user.first_name %></td>
 		        <td><%= user.last_name %></td>
-		        <td><%= user.admin_flag.nil? ? 'N' : user.admin_flag %></td>
+		        <td><%= user.admin_flag %></td>
+		        <td><%= user.read_only %></td>
 		      </tr>
 		      <% end %>
 		    </tbody>

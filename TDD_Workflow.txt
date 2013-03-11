@@ -1,0 +1,25 @@
+TDD Workflow
+
+1. Create mockup of the page(s) to be implemented.
+    Title: EZDC | Manager Users
+    <h1>: Manage Users
+    Row of buttons: Add User | Edit User | Delete User
+    Table:
+      Checkbox | User Id | First Name | Last Name | ??
+
+2. Identify tests to create.
+    a. Title
+    b. <h1>
+    c. List of users
+    d. Click_button "Add User" navigates to add user page
+    e. Others?
+
+3. Write and run tests. Test should fail.
+
+4. Write code to make each test pass.
+   a. Add code to handle a unique title for each page (see Sample App)
+   b. Add code for navbar (Sample App)
+   c. Add code to style table (Bootstrap How-To)
+
+5. Test and fix until all test pass.
+
