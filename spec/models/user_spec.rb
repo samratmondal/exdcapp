@@ -38,6 +38,15 @@ describe User do
   	it { should_not be_valid }
   end
 
+  describe "when username is already taken" do
+    before do
+      user_with_same_username = @user.dup
+      user_with_same_username.save
+    end
+
+    it { should_not be_valid }
+  end
+
   describe "when password is not present" do
   	before { @user.password = "" }
   	it { should_not be_valid }
