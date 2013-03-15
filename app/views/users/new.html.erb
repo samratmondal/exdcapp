@@ -3,7 +3,7 @@
 <div class="container">
   <div class="page-header">
 		<h1>Add User</h1>
-	</div>
+  </div>
 
 	<div class="row">
 	  <div class="span6 offset3">
@@ -21,25 +21,20 @@
 
 	      <%= f.label :password %>
 	      <%= f.password_field :password %>
+          <br />
 
-<!--     	  <%= f.label :password_confirmation, "Confirm password" %>
-	      <%= f.password_field :password_confirmation %>
- -->
-        <br />
-
-        <%= f.label :admin_flag, class: 'checkbox inline' do %>
-          <%= f.check_box :admin_flag, {:checked => :admin_flag}, "Y", "N" %>
-          Admin&nbsp;User
-        <% end %>
-        <%= f.label :read_only, class: 'checkbox inline' do %>
-          <%= f.check_box :read_only, { checked: @user.read_only == "Y" }, "Y", "N" %>
-          Read&nbsp;Only
-        <% end %>
-
-	      <br /><br />
-
-	      <%= f.submit "Create user", :disable_with => "Please wait...", class: "btn btn-large btn-primary" %>
+          <%= f.label :admin_flag, class: 'checkbox inline' do %><%= f.label :attribute, "Attribute" %>
+            <%= f.check_box :admin_flag, {:checked => :admin_flag}, "Y", "N" %>
+              Admin&nbsp;User
+          <% end %>
+          <%= f.label :read_only, class: 'checkbox inline' do %>
+            <%= f.check_box :read_only, { checked: @user.read_only == "Y" }, "Y", "N" %>
+              Read&nbsp;Only
+          <% end %>
+          <br /><br />
+          <%= f.submit "Create user", :disable_with => "Please wait...", class: "btn btn-large btn-primary" %>
+          <%= link_to "Cancel", users_path, class: "btn btn-large btn-primary" %>
 	    <% end %>
 	  </div>
-
+  </div>
 </div>

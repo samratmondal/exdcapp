@@ -22,13 +22,19 @@ describe User do
 
   before do
     @user = User.new(user_name: "testUser", password: "testUserPassword",
-    	rec_add_ts: Time.current, rec_add_user_name: "cmmiTest")
+    	first_name: "Test", last_name: "User", admin_flag: "Y", read_only: "N")
   end
 
   subject { @user }
 
+  it { should respond_to(:cmmi_user_id) }
   it { should respond_to (:user_name) }
   it { should respond_to (:password) }
+  it { should respond_to (:first_name) }
+  it { should respond_to (:last_name) }
+  it { should respond_to (:admin_flag) }
+  it { should respond_to (:read_only) }
+
   it { should respond_to (:authenticate) }
 
   it { should be_valid }
@@ -38,9 +44,15 @@ describe User do
   	it { should_not be_valid }
   end
 
+  describe "when user_name is too long" do
+    before { @user.user_name = "j" * 51 }
+    it { should_not be_valid }
+  end
+
   describe "when username is already taken" do
     before do
       user_with_same_username = @user.dup
+      user_with_same_username.user_name = @user.user_name.upcase
       user_with_same_username.save
     end
 
