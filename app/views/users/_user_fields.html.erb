@@ -1,0 +1,26 @@
+<%= render 'shared/error_messages', object: f.object %>
+
+<%= f.label :user_name %>
+<%= f.text_field :user_name, { disabled: disable_element } %>
+
+<%= f.label :first_name %>
+<%= f.text_field :first_name, { disabled: disable_element } %>
+
+<%= f.label :last_name %>
+<%= f.text_field :last_name, { disabled: disable_element } %>
+
+<%= f.label :password %>
+<%= f.text_field :password, { disabled: disable_element } %>
+
+<br />
+<%= f.label :admin_flag, class: 'checkbox inline' do %>
+  <%= f.check_box :admin_flag, { disabled: disable_element, checked: @user.admin_flag == "Y" } %>
+  Admin&nbsp;User
+<% end %>
+<%= f.label :read_only, class: 'checkbox inline' do %>
+  <%= f.check_box :read_only, { disabled: disable_element, checked: @user.read_only == "Y" } %>
+  Read&nbsp;Only
+<% end %>
+<br /><br />
+
+

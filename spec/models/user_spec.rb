@@ -25,7 +25,7 @@ describe User do
     	first_name: "Test", last_name: "User", admin_flag: "Y", read_only: "N")
   end
 
-  subject { @user }
+  #subject { @user }
 
   it { should respond_to(:cmmi_user_id) }
   it { should respond_to (:user_name) }

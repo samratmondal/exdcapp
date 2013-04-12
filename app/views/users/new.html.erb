@@ -8,29 +8,8 @@
 	<div class="row">
 	  <div class="span6 offset3">
 	    <%= form_for(@user) do |f| %>
-	      <%= render 'shared/error_messages' %>
-	      
-	      <%= f.label :first_name %>
-	      <%= f.text_field :first_name %>
-
-	      <%= f.label :last_name %>
-	      <%= f.text_field :last_name %>
-
-	      <%= f.label :user_name %>
-	      <%= f.text_field :user_name %>
-
-	      <%= f.label :password %>
-	      <%= f.password_field :password %>
-          <br />
-
-          <%= f.label :admin_flag, class: 'checkbox inline' do %><%= f.label :attribute, "Attribute" %>
-            <%= f.check_box :admin_flag, {:checked => :admin_flag}, "Y", "N" %>
-              Admin&nbsp;User
-          <% end %>
-          <%= f.label :read_only, class: 'checkbox inline' do %>
-            <%= f.check_box :read_only, { checked: @user.read_only == "Y" }, "Y", "N" %>
-              Read&nbsp;Only
-          <% end %>
+        <%= render(:partial => 'user_fields', :object => @user,
+            :locals => { :f => f, :disable_element => false}) %>      
           <br /><br />
           <%= f.submit "Create user", :disable_with => "Please wait...", class: "btn btn-large btn-primary" %>
           <%= link_to "Cancel", users_path, class: "btn btn-large btn-primary" %>

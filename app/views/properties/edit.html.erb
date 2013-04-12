@@ -1,8 +1,8 @@
-<% provide(:title, 'Add Property') %>
+<% provide(:title, 'Edit Property') %>
 
 <div class="container">
   <div class="page-header">
-    <h1>Add Property</h1>
+    <h1>Edit Property</h1>
   </div>
 
   <div class="row">
@@ -11,8 +11,8 @@
         <%= render(:partial => 'property_fields', :object => @property,
             :locals => { :f => f, :disable_element => false }) %>
         <br /><br />
-        <%= f.submit "Create property", :disable_with => "Please wait...", class: "btn btn btn-primary" %>
-        <%= link_to "Cancel", properties_path, class: "btn btn btn-primary" %>
+          <%= f.submit "Update", class: "btn btn btn-primary" %>
+          <%= link_to "Cancel", @property, class: "btn btn btn-primary" %>
       <% end %>
     </div>
   </div>

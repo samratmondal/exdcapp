@@ -22,8 +22,8 @@ class User < ActiveRecord::Base
   # set the number of users to display on each page when paginated
   self.per_page = 10
 
-  attr_accessible :cmmi_user_id, :user_name, :password,
-    :first_name, :last_name, :admin_flag, :read_only
+  attr_accessible :cmmi_user_id, :user_name, :password, :first_name, 
+                  :last_name, :admin_flag, :read_only
   
   before_create do
     self.rec_add_ts = Time.new
@@ -58,15 +58,15 @@ class User < ActiveRecord::Base
   alias_attribute :user_name, :cmmi_user_name
   alias_attribute :password, :cmmi_user_password
 
+  validates :user_name, :password, :first_name, :last_name, :presence => true
+
   validates :user_name, 
-    presence: true,
     length: { maximum: 50 }
 
   validates_uniqueness_of :cmmi_user_name, case_sensitive: false, message: "has already been used. Choose a different one."
 
   validates :password,
-    presence: true,
-    length: { minimum: 6 }
+    length: { minimum: 5 }
 
   def authenticate(entered_password)
     self.password == entered_password

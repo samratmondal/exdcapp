@@ -6,13 +6,13 @@
   </div>
 
   <div class="row">
-    <div class="span4 offset4">
+    <div class="span6 offset3">
       <%= form_for(@property) do |f| %>
         <%= render(:partial => 'property_fields', :object => @property,
             :locals => { :f => f, :disable_element => false }) %>
-        <br /><br />
-        <%= f.submit "Create property", :disable_with => "Please wait...", class: "btn btn btn-primary" %>
-        <%= link_to "Cancel", properties_path, class: "btn btn btn-primary" %>
+        <br />
+        <%= f.submit "Create property", :disable_with => "Please wait...", class: "btn btn-large btn-primary" %>
+        <%= link_to "Cancel", properties_path, class: "btn btn-large btn-primary" %>
       <% end %>
     </div>
   </div>

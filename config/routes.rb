@@ -3,9 +3,10 @@ EzdcApp::Application.routes.draw do
   resources :properties
   resources :sessions, only: [:new, :create, :destroy]
 
+  root to: 'static_pages#home'
+
   match '/signin',  to: 'sessions#new'
   match '/signout', to: 'sessions#destroy', via: :delete
-  match '/home', to: 'static_pages#home'
   match '/users', to: 'users#show'
   match '/add_user', to: 'users#new'
   match '/edit_user', to: 'users#edit'

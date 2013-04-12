@@ -1,37 +1,19 @@
 <% provide(:title, 'Edit User') %>
-<h1>Edit User</h1>
 
-<div class="row">
-  <div class="span6 offset3">
-  	<%= form_for(@user) do |f| %>
-        
-        <%= f.label :user_name %>
-        <%= f.text_field :user_name %>
+<div class="container">
+  <div class="page-header">
+    <h1>Edit User</h1>
+  </div>
 
-        <%= f.label :first_name %>
-        <%= f.text_field :first_name %>
-
-        <%= f.label :last_name %>
-        <%= f.text_field :last_name %>
-
-        <%= f.label :password %>
-        <%= f.text_field :password %>
-
+  <div class="row">
+    <div class="span6 offset3">
+    	<%= form_for(@user) do |f| %>
+        <%= render(:partial => 'user_fields', :object => @user,
+            :locals => { :f => f, :disable_element => false }) %>
         <br />
-        <%= f.label :admin_flag, class: 'checkbox inline' do %>
-          <%= f.check_box :admin_flag, { checked: @user.admin_flag == "Y" }, "Y", "N" %>
-          Admin&nbsp;User
-        <% end %>
-        <%= f.label :read_only, class: 'checkbox inline' do %>
-          Read&nbsp;Only
-        <% end %>
-        <br /><br />
         <%= f.submit "Update", class: "btn btn-large btn-primary" %>
         <%= link_to "Cancel", @user, class: "btn btn-large btn-primary" %>
-
-    <% end %>
-
- 
+      <% end %>
+    </div>
   </div>
 </div>
-

@@ -1,0 +1,23 @@
+<%= render 'shared/error_messages', object: f.object %>
+
+<%= f.label :property_name %>
+<%= f.text_field :property_name, { disabled: disable_element } %>
+
+<%= f.label :property_desc, "Description" %>
+<%= f.text_field :property_desc, { disabled: disable_element } %>
+
+<%= f.label :related_entity %>
+<% if disable_element %>
+  <%= f.text_field :related_entity, { disabled: disable_element } %>
+<% else %>
+  <%= f.select(:related_entity, Property.related_entities, { :include_blank => 'Select one...' }, { :selected => :related_entity } ) %>
+<% end %>
+
+<%= f.label :property_type, "Type" %>
+<%= f.text_field :property_type, { disabled: disable_element } %>
+
+<%= f.label :tool_tip %>
+<%= f.text_field :tool_tip, { disabled: disable_element } %>
+
+<%= f.label :property_status %>
+<%= text_field(:property, :property_status, :value => @property.property_status, :disabled => true) %>

@@ -8,7 +8,7 @@ describe "User pages" do
 
   	before { visit users_path }
 
-  	it { should have_selector('title', text: 'EZDC App | All Users') }
+  	it { should have_selector('title', text: 'EZDC Admin Tool | All Users') }
   	it { should have_selector('h1', text: 'All Users') }
     # it { should have_selector('li', text: User.first.user_name) }
 
