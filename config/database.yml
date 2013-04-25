@@ -42,4 +42,4 @@ production:
   adapter: oracle
   database: ezdc_app_production
   username: ezdc_app
-  password:
+  password: secret
