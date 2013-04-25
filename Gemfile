@@ -40,12 +40,11 @@ group :test do
   gem 'factory_girl_rails', '4.2.1'
 
 # gems for Mac OS X
-  gem 'rb-fsevent', '0.9.3'
-  gem 'growl', '1.0.3'
+#  gem 'rb-fsevent', '0.9.3'
+#  gem 'growl', '1.0.3'
 
 # gems for Windows
-  # gem 'rb-fchange', '0.0.5'
-  # gem 'rb-notifu', '0.0.4'
-  # gem 'win32console', '1.3.0'
-  
+  gem 'rb-fchange', '0.0.5'
+  gem 'rb-notifu', '0.0.4'
+  gem 'win32console', '1.3.2'
 end
