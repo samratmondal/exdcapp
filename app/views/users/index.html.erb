@@ -11,7 +11,7 @@
 
 	    <div class="pull-right">
 	    	<p>
-	    		<%= link_to "Add User", add_user_path, class: "btn btn-primary" %>
+	    		<%= link_to "Add User", new_user_path, class: "btn btn-primary" %>
         </p>
       </div>
 
@@ -26,6 +26,7 @@
 		        <th>Last Name</th>
 		        <th style="text-align:center">Admin Flag</th>
 		        <th style="text-align:center">Read Only Flag</th>
+            <th>Assigned Contracts</th>
 		      </tr>
 	      </thead>
 	      <tbody>
@@ -37,6 +38,10 @@
 		        <td><%= user.last_name %></td>
 		        <td style="text-align:center"><%= user.admin_flag %></td>
 		        <td style="text-align:center"><%= user.read_only %></td>
+            <td>
+              <%= (user.contracts.map {|c| c.contract_name}).to_sentence(
+                :two_words_connector => ', ', :last_word_connector => ', ') %>
+            </td>
 		      </tr>
 		      <% end %>
 		    </tbody>

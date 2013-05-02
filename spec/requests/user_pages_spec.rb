@@ -10,12 +10,12 @@ describe "User pages" do
 
   	it { should have_selector('title', text: 'EZDC Admin Tool | All Users') }
   	it { should have_selector('h1', text: 'All Users') }
-    # it { should have_selector('li', text: User.first.user_name) }
+    it { should have_selector('td', text: User.first.user_name) }
 
-    # describe "add user" do
-    #   before { click_button "Add User" }
-
-    #   specify { response.should redirect_to(add_users_path) }
-    # end
+    describe "visiting the add user page" do
+      before { click_link "Add User" }
+      it { should have_selector('title', text: 'Add User') }
+      it { should_not have_selector('label', text: 'Password') }
+    end
   end	
 end

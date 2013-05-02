@@ -9,18 +9,29 @@
 <%= f.label :last_name %>
 <%= f.text_field :last_name, { disabled: disable_element } %>
 
-<%= f.label :password %>
-<%= f.text_field :password, { disabled: disable_element } %>
-
 <br />
 <%= f.label :admin_flag, class: 'checkbox inline' do %>
-  <%= f.check_box :admin_flag, { disabled: disable_element, checked: @user.admin_flag == "Y" } %>
+  <%= f.check_box :admin_flag, { disabled: disable_element, checked: @user.admin_flag == "Y" }, "Y", "N" %>
   Admin&nbsp;User
 <% end %>
+
 <%= f.label :read_only, class: 'checkbox inline' do %>
-  <%= f.check_box :read_only, { disabled: disable_element, checked: @user.read_only == "Y" } %>
+  <%= f.check_box :read_only, { disabled: disable_element, checked: @user.read_only == "Y" }, "Y", "N" %>
   Read&nbsp;Only
 <% end %>
 <br /><br />
+
+<div class="field">
+  <%= hidden_field_tag "user[contract_ids][]", nil %>
+  <%= label_tag 'user_contracts', 'Contracts' %>
+  <% Contract.all.each do |contract| %>
+    <%= label_tag contract.contract_name, class: 'checkbox inline' do %>
+      <%= check_box_tag "user[contract_ids][]", contract.contract_id, @user.contract_ids.include?(contract.contract_id), :disabled => disable_element %>
+      <%= contract.contract_name %>
+    <% end %>
+  <% end %>
+</div>
+
+
 
 

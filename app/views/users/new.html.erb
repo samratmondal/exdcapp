@@ -10,9 +10,9 @@
 	    <%= form_for(@user) do |f| %>
         <%= render(:partial => 'user_fields', :object => @user,
             :locals => { :f => f, :disable_element => false}) %>      
-          <br /><br />
-          <%= f.submit "Create user", :disable_with => "Please wait...", class: "btn btn-large btn-primary" %>
-          <%= link_to "Cancel", users_path, class: "btn btn-large btn-primary" %>
+          <br />
+          <%= f.submit "Create user", :disable_with => "Please wait...", class: "btn btn-primary" %>
+          <%= link_to "Cancel", users_path, class: "btn btn-primary" %>
 	    <% end %>
 	  </div>
   </div>
