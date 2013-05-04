@@ -6,9 +6,13 @@
   </div>
 
   <div class='row'>
-  	<div class="span8 offset2"
-      <p><%= link_to "Manage Users", users_path, class: "btn btn-large btn-primeary"%></p>
-      <p><%= link_to "Manage Properties", properties_path, class: "btn btn-large btn-primeary" %></p>
+  	<div class="span4 offset5"
+       <p>
+      	<%= link_to raw('<i class="icon-user icon-white"></i> Manage Users'), users_path, class: "btn btn-primary" %>  
+      </p>
+      <p>
+      	<%= link_to raw('<i class="icon-cog icon-white"></i> Manage Properties'), properties_path, class: "btn btn-primary" %>  
+      </p>
     </div>
   </div>
 </div>

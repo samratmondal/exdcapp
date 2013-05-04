@@ -18,18 +18,22 @@
       }
     </style>
 
-    <script type="text/javascript" src="/assets/jquery-latest.js"></script> 
-    <script type="text/javascript" src="/assets/jquery.tablesorter.js"></script> 
-
     <script type="text/javascript">
       $(document).ready(function() 
         { 
-          $(".table").tablesorter(); 
+          // ++TableSorter++ Plugin
+          $(".table").tablesorter();
+
+          // **TableFilter** Plugin
+          var tfOptions = { clearFiltersControls: [$('#clearfilters')], };
+          $(".table").tableFilter(tfOptions); 
         } 
       );
     </script>
+
     <%= render 'layouts/shim' %>
   </head>
+  
   <body>
     <%= render 'layouts/header' %>
     <div class="container">

@@ -7,44 +7,55 @@
 
   <div class='row'>
   	<div class="span12">
-	    <em>Click on User Name link to edit or delete a user.</em>
-
-	    <div class="pull-right">
-	    	<p>
-	    		<%= link_to "Add User", add_user_path, class: "btn btn-primary" %>
+  	  <div class="pull-right">
+	    <p>
+	      <%= link_to raw('<i class="icon-plus icon-white"></i> Add User'), add_user_path, class: "btn btn-small btn-primary" %>
         </p>
       </div>
 
+	  <em>
+	  	Click on User Name link to view/edit/delete a User.
+	  </em>
+
+      <br/>
+      <br/>
+
+      <a id="clearfilters" href="#" class="btn btn-small btn-info pull-right">
+        <i class="icon-refresh icon-white"></i>
+        Clear Filters
+      </a>
+
       <%= will_paginate %>
 
-	    <table id="userTable" class="table table-striped table-bordered tablesorter">
-	      <thead>
-		      <tr>
-		        <th>User Name</th>
-		        <th style="text-align:center">User ID</th>
-		        <th>First Name</th>
-		        <th>Last Name</th>
-		        <th style="text-align:center">Admin Flag</th>
-		        <th style="text-align:center">Read Only Flag</th>
-		      </tr>
-	      </thead>
-	      <tbody>
+	  <table id="userTable" class="table table-striped table-bordered tablesorter">
+	    <thead>
+		  <tr>
+		    <th>User Name</th>
+		    <th style="text-align:center">User ID</th>
+		    <th>First Name</th>
+		    <th>Last Name</th>
+		    <th style="text-align:center" filter-type='ddl'>Admin</th>
+		    <th style="text-align:center" filter-type='ddl'>Read Only</th>
+		  </tr>
+	    </thead>
+	   
+	    <tbody>
           <% @users.each do |user| %>
-		      <tr>
-		        <td><%= link_to user.user_name, user %></td>
-		        <td style="text-align:center"><%= user.cmmi_user_id %></td>
-		        <td><%= user.first_name %></td>
-		        <td><%= user.last_name %></td>
-		        <td style="text-align:center"><%= user.admin_flag %></td>
-		        <td style="text-align:center"><%= user.read_only %></td>
-		      </tr>
-		      <% end %>
-		    </tbody>
-	    </table>
+		    <tr>
+		      <td><%= link_to user.user_name, user %></td>
+		      <td style="text-align:center"><%= user.cmmi_user_id %></td>
+		      <td><%= user.first_name %></td>
+		      <td><%= user.last_name %></td>
+		      <td style="text-align:center"><%= user.admin_flag %></td>
+		      <td style="text-align:center"><%= user.read_only %></td>
+		    </tr>
+		  <% end %>
+		</tbody>
+	  </table>
 
       <%= will_paginate %>
 
-	  </div>
 	</div>
-	<br />
+  </div>
+  <br />
 </div>

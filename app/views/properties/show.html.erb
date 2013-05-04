@@ -14,18 +14,14 @@
         <%= f.text_field :rec_add_ts, { disabled: true } %>
       <% end %>
 
-      <% disable_edit_btn = true if @property.related_entity == "Action_Items" %>
-      <!-- This styling is looking awful kludgy. I'm pretty sure this isn't
-           the right way to do it. But it works, so I'll leave it this way
-           for now and try to figure out a better way later.
-           [Joe 04.12.1013]
-      -->
-      <div style="float:left;padding-right:4px">  
-        <%= button_to "Edit", edit_property_path, class: "btn btn-primary", :method => :get, :disabled => disable_edit_btn %>
-      </div>
-      <div style="float:left">
-        <%= button_to "Cancel", properties_path, class: "btn btn-primary", :method => :get %>
-      </div>
+      <!-- <% disable_edit_btn = true if @property.related_entity == "Action_Items" %> -->
+      <% if @property.related_entity == "Action_Items" %>
+        <%= link_to raw('<i class="icon-edit icon-white"></i> Edit'), edit_property_path, class: "btn btn-small btn-primary", :disabled => disable_edit_btn %>
+      <% else %>
+        <%= link_to raw('<i class="icon-edit icon-white"></i> Edit'), edit_property_path, class: "btn btn-small btn-primary" %>
+      <% end %>
+
+      <%= link_to raw('<i class="icon-stop icon-white"></i> Cancel'), properties_path, class: "btn btn-small btn-primary" %>    
     </div>
   </div>
 </div>

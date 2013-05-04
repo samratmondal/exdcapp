@@ -7,13 +7,23 @@
 
   <div class='row'>
     <div class="span12">
-      <strong><em>Click on Property Name link to view additional information or edit a property.</em></strong>
-
       <div class="pull-right">
         <p>
-          <%= link_to "Add Property", new_property_path, class: "btn btn-primary" %>
+          <%= link_to raw('<i class="icon-plus icon-white"></i> Add Property'), new_property_path, class: "btn btn-small btn-primary" %>
         </p>
       </div>
+
+      <em>
+        Click on Property Name link to view/edit/delete a Property.
+      </em>
+
+      <br/>
+      <br/>
+
+      <a id="clearfilters" href="#" class="btn btn-small btn-info pull-right">
+        <i class="icon-refresh icon-white"></i>
+        Clear Filters
+      </a>
 
       <%= will_paginate %>
 
@@ -23,9 +33,9 @@
             <th>Property Name</th>
             <th style="text-align:center">ID</th>
             <th>Description</th>
-            <th>Related Entity</th>
-            <th>Type</th>
-            <th>Status</th>
+            <th filter-type='ddl'>Related Entity</th>
+            <th filter-type='ddl'>Type</th>
+            <th filter-type='ddl'>Status</th>
           </tr>
         </thead>
         <tbody>

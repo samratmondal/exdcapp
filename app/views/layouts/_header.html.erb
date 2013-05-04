@@ -10,9 +10,9 @@
           <div class="brand"><%= link_to "EZDC ADMIN TOOL", root_path %></div>
           <div class="nav-collapse collapse">
             <ul class="nav">
-              <li><%= link_to "Users", users_path %></li>
-              <li><%= link_to "Properties", properties_path %></li>
-              <li><a href="about.html">About</a></li>
+              <li><%= link_to raw('<i class="icon-user icon-white"></i> Users'), users_path %></li>
+              <li><%= link_to raw('<i class="icon-cog  icon-white"></i> Properties'), properties_path %></li>
+              <li><%= link_to raw('<i class="icon-info-sign icon-white"></i> About'), "about.html" %></li>              
             </ul>
           </div><!--/.nav-collapse -->
         </div>

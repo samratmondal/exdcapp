@@ -10,9 +10,15 @@
       <%= form_for(@property) do |f| %>
         <%= render(:partial => 'property_fields', :object => @property,
             :locals => { :f => f, :disable_element => false }) %>
+        
         <br /><br />
-          <%= f.submit "Update", class: "btn btn btn-primary" %>
-          <%= link_to "Cancel", @property, class: "btn btn btn-primary" %>
+              
+        <button type="submit" class="btn btn-small btn-primary">
+          <i class="icon-ok icon-white"></i> 
+          Update
+        </button>
+          
+        <%= link_to raw('<i class="icon-stop icon-white"></i> Cancel'), @property, class: "btn btn-small btn-primary" %>
       <% end %>
     </div>
   </div>
