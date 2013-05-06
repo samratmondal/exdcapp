@@ -12,4 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.tablesorter.min.js
+//= require picnet.table.filter.min.js
 //= require_tree .

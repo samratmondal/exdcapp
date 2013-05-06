@@ -2,17 +2,19 @@
 #
 # Table name: property
 #
-#  property_id        :integer          not null, primary key
-#  property_name      :string(255)      not null
-#  property_type      :string(255)      not null
-#  property_desc      :string(255)      not null
-#  property_status    :string(255)      not null
-#  related_entity     :string(255)      not null
-#  rec_add_ts         :datetime(6)      not null
-#  rec_add_user_name  :string(255)      not null
-#  property_value     :string(255)
-#  rec_updt_ts        :datetime(6)
-#  rec_updt_user_name :string(255)
+#  property_id          :integer          not null, primary key
+#  property_name        :string(255)      not null
+#  property_type        :string(255)      not null
+#  property_desc        :string(255)      not null
+#  property_status      :string(255)      not null
+#  related_entity       :string(255)      not null
+#  rec_add_ts           :datetime(6)      not null
+#  rec_add_user_name    :string(255)      not null
+#  property_value       :string(255)
+#  rec_updt_ts          :datetime(6)
+#  rec_updt_user_name   :string(255)
+#  tool_tip             :string(255)
+#  contract_property_id :decimal(, )
 #
 
 class Property < ActiveRecord::Base
@@ -58,7 +60,7 @@ class Property < ActiveRecord::Base
   self.per_page = 15
 
   attr_accessible :property_id, :property_name, :property_type, :property_desc, 
-                  :related_entity, :tool_tip
+                  :property_status, :related_entity, :tool_tip
 
   attr_reader :rec_add_ts
 
