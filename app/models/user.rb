@@ -19,9 +19,6 @@
 
 class User < ActiveRecord::Base
 
-  # set the number of users to display on each page when paginated
-  self.per_page = 10
-
   has_many :contractusers, :foreign_key => :cmmi_user_id, dependent: :delete_all
   has_many :contracts, through: :contractusers
 

@@ -56,9 +56,6 @@ class Property < ActiveRecord::Base
     @@related_entities
   end
 
-  # set then number of users to display on each page when paginated
-  self.per_page = 15
-
   attr_accessible :property_id, :property_name, :property_type, :property_desc, 
                   :property_status, :related_entity, :tool_tip
 
