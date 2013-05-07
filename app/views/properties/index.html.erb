@@ -5,18 +5,18 @@
     <h1>All Properties</h1>
   </div>
 
-  <div class="span4 offset5">
-    <%= link_to raw('<i class="icon-plus icon-white"></i> Add Property'), new_property_path, class: "btn btn-small btn-primary" %>
-  </div>
-
-  <br/><br/>
-
   <div class='row'>
     <div class="span12">
       <em>
         Click on Property Name link to view, edit or delete a Property.
+        <br/>
+        Sort multiple columns simultaneously by holding down the shift key and clicking a second, third or even fourth column header.
       </em>
 
+      <br/><br/>
+
+      <%= link_to raw('<i class="icon-plus icon-white"></i> Add Property'), new_property_path, class: "btn btn-small btn-primary pull-left" %>
+      
       <a id="clearfilters" href="#" class="btn btn-small btn-info pull-right">
         <i class="icon-refresh icon-white"></i>
         Clear Filters
