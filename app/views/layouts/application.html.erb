@@ -20,15 +20,51 @@
 
     <script type="text/javascript">
       $(document).ready(function() 
-        { 
-          // ++TableSorter++ Plugin
-          $(".table").tablesorter();
+      { 
+        // ++TableSorter++ Plugin
+        $(".table").tablesorter({widgets: ['zebra']});
 
-          // **TableFilter** Plugin
-          var tfOptions = { clearFiltersControls: [$('#clearfilters')], };
-          $(".table").tableFilter(tfOptions);
-        } 
-      );
+        // **TableFilter** Plugin
+        var tfOptions = { 
+                          clearFiltersControls: [$('#clearfilters')],
+                          enableCookies: false, 
+                          filteredRows: function(filterStates) 
+                                        { 
+                                          // alert('*** Filter DONE ***');
+                                          var stripe = false;
+
+                                          // Get each "userTable" row
+                                          $('.table > tbody > tr').each(function () 
+                                          {
+                                            if ($(this).attr('filtermatch')) 
+                                            {
+                                              // row invisible
+                                              // alert('filtermatch EXISTS: ' + $(this).index());
+                                              $(this).removeClass('odd');
+                                            } 
+                                            else 
+                                            {
+                                              // row visible
+                                              // alert('filtermatch MISSING: ' + $(this).index());
+                                              if (stripe == false) 
+                                              {
+                                                // unstripe row
+                                                $(this).removeClass('odd');
+                                                stripe = true;
+                                              }
+                                              else
+                                              {
+                                                // stripe row
+                                                $(this).addClass('odd');
+                                                stripe = false;
+                                              }
+                                            }
+                                          }); 
+                                        }
+                        };
+
+        $(".table").tableFilter(tfOptions);
+      });
     </script>
 
     <%= render 'layouts/shim' %>
